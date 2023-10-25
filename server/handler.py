@@ -79,12 +79,12 @@ class GladosEventHandler(AsyncEventHandler):
                 text = text + self.cli_args.auto_punctuation[0]
 
         # Actual tts here
-        _LOGGER.debug("synthesize: raw_text=%s, text='%s'", raw_text, text)
+        _LOGGER.debug("Synthesize: raw_text=%s, text='%s'", raw_text, text)
         wav_path = None
         if len(text) > 0:
             wav_path = self.handle_tts_request(text)
 
-        _LOGGER.debug(wav_path)
+        _LOGGER.debug("%s created", wav_path)
 
         wav_file: wave.Wave_read = wave.open(wav_path, "rb")
         with wav_file:
