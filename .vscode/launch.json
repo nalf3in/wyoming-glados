@@ -13,23 +13,9 @@
             "justMyCode": true,
             "args": [
                 "--uri",
-                "tcp://0.0.0.0:10252",
-                "--models-dir",
-                "/toto/hello"
+                "tcp://0.0.0.0:10201",
+                "--debug",
             ]
         },
-        // {
-        //     "name": "Python: Module",
-        //     "type": "python",
-        //     "request": "launch",
-        //     "module": "wyoming_piper",
-        //     "justMyCode": true,
-        //     "args": [
-        //         "--exe_path",
-        //         "../glados-tts/run.sh",
-        //         "--uri",
-        //         "tcp://0.0.0.0:10252"
-        //     ]
-        // }
     ]
 }

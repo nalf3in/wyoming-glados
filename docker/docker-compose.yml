@@ -1,0 +1,15 @@
+version: "3"
+services:
+  wyoming-glados:
+    image: wyoming-glados:0
+    container_name: wyoming-glados
+    ports:
+      - 10201:10201
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
