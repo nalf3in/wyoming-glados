@@ -7,6 +7,8 @@ The server part is an heavily stripped down version of [wyoming-piper](https://g
 TODOS: 
 - Docker image ✅
 - Automatic download of model files ✅ (please use download.py)
+- Download from homeassistant directly (for homassistantos users)
+- Readme steps for connecting this to homeassistant
 - Add options to the docker container
 - Code cleanup
 - Speedup the tts engine for rtx gpus ? See [here](https://developer.nvidia.com/tensorrt)
