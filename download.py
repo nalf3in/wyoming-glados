@@ -1,4 +1,5 @@
 """Utility for downloading gladostts models"""
+import argparse
 import hashlib
 import logging
 import shutil
@@ -7,7 +8,9 @@ from typing import Union
 from urllib.parse import quote, urlsplit, urlunsplit
 from urllib.request import urlopen
 
-URL = "https://github.com/nalf3in/glados-tts/releases/download/v0.1.0-alpha/{file}"
+
+DEFAULT_URL = "https://github.com/nalf3in/glados-tts/releases/download/v0.1.0-alpha/{file}"
+DEFAULT_MODEL_DIR = "./gladostts/models"
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -74,5 +77,12 @@ def ensure_model_exists(download_dir: Union[str, Path]):
             except:
                 _LOGGER.exception("Unexpected error while downloading file: %s\nURL: %s", model_file, _quote_url(model_url))
 
+
 if __name__ == "__main__":
-    ensure_model_exists("./gladostts/models")
+    parser = argparse.ArgumentParser(description='Model Downloader')
+    parser.add_argument('--model_dir', type=str, default=DEFAULT_MODEL_DIR, help='Directory for the models')
+    parser.add_argument('--url', type=str, default=DEFAULT_URL, help='URL for downloading models')
+    args = parser.parse_args()
+
+    URL = args.url
+    ensure_model_exists(args.model_dir)
